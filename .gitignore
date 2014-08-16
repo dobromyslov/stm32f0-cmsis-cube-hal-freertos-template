@@ -1,0 +1,5 @@
+.dep/
+.settings/
+build/
+.cproject
+.project
