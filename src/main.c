@@ -126,6 +126,8 @@ static void CheckButtonThread(void const * argument) {
 extern void xPortSysTickHandler(void);
 
 void SysTick_Handler(void) {
-  xPortSysTickHandler();
-  HAL_IncTick();
+    if (xTaskGetSchedulerState() != taskSCHEDULER_NOT_STARTED) {
+        xPortSysTickHandler();
+    }
+    HAL_IncTick();
 }
